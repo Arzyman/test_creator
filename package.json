@@ -1,0 +1,25 @@
+{
+  "name": "test_creator",
+  "version": "0.0.0",
+  "description": "web-desktop program on js backend about tests",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bitardd/test_creator.git"
+  },
+  "author": "Ainur Zaymanov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bitardd/test_creator/issues"
+  },
+  "homepage": "https://github.com/Bitardd/test_creator#readme",
+  "devDependencies": {
+    "electron": "^4.0.1"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
