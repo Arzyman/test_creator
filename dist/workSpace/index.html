@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Test creator</title>
 </head>
 <body>
     <div id="pagewarp">
         <!-- header begin -->
-        <header class="header">
+        <header class="header win-item">
             <!-- Left side items -->
             <div class="left">
                 <!-- User avatar -->
@@ -28,7 +28,7 @@
         </header>  
         <!-- header end -->
         <!-- navbar begin -->
-        <nav class="navbar">
+        <nav class="navbar win-item">
             <!-- navbar button list -->
             <ul>
                 <li><button id="qwe">Что-то</button></li>
@@ -39,19 +39,21 @@
             </ul>
         </nav> 
          <!--navbar end  -->
-        <div class="content">
-            <div id="testList" class="testList">
+            <!-- list of tests and choosing them -->
+            <div id="testList" class="testList win-item">
                 <div id="startTestInList">
 
                 </div>
             </div>
-            <div id="controls" class="controls">
+            <!-- left side of content with program functions -->
+            <div id="controls" class="controls win-item">
 
             </div>
-        </div>
-        <footer class="footer">
-
+        <!-- footer begin -->
+        <footer class="footer win-item">
+            <span>This footer</span>
         </footer>
+        <!-- footer end -->
     </div>  
     <script type="text/javascript">
         require('./workSpace.js')

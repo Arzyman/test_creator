@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html, body { 
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header {
+    grid-area: hd;
+}
+.navbar {
+    grid-area: nv;
+}
+.footer {
+    grid-area: ft;
+}
+
+.testList {
+    grid-area: tl;
+}
+
+.controls {
+    grid-area: ct;
+}
+
+#pagewarp {
+    background-color: #f39c12;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: repeat(9, 1fr);
+    grid-auto-rows: minmax(30px, auto);
+    grid-template-areas: 
+        "hd hd hd hd hd hd hd hd hd"
+        "nv nv nv nv nv nv nv nv nv"
+        "tl tl tl tl tl tl ct ct ct"
+        "tl tl tl tl tl tl ct ct ct"
+        "tl tl tl tl tl tl ct ct ct"
+        "tl tl tl tl tl tl ct ct ct"
+        "tl tl tl tl tl tl ct ct ct"
+        "tl tl tl tl tl tl ct ct ct"
+        "tl tl tl tl tl tl ct ct ct"
+        "tl tl tl tl tl tl ct ct ct"
+        "tl tl tl tl tl tl ct ct ct"
+        "tl tl tl tl tl tl ct ct ct"
+        "ft ft ft ft ft ft ft ft ft"
+}
+.win-item {
+    margin: 5px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.navbar > ul {
+    list-style: none;
+}
+.navbar > ul > li {
+    float: left;
+}

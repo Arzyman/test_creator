@@ -8,14 +8,13 @@ var createWindow = () => {
         autoHideMenuBar: false,
     })
 
-    mainWindow.loadFile('./dist/workSpace/index.html')
+    mainWindow.loadFile('./dist/signInUp/index.html')
 
     mainWindow.on('closed', () => {
         mainWindow = null
     })
 }
 app.on('browser-window-created', (e,window) => {
-    window.setMenu(null)
     window.maximize()
 })
 

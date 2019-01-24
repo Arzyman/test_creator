@@ -7,4 +7,3 @@ const { session } = require('electron').remote
 const c = require('electron').remote.getGlobal('console')
 
 c.log('---')
-//--------------------------------------------
