@@ -1,23 +1,22 @@
 const {app, BrowserWindow} = require('electron')
 
 let mainWindow
-let childWindow
 var createWindow = () => {
     mainWindow = new BrowserWindow({
         width: 800,
-        height: 600,
-        autoHideMenuBar: false
+        height: 1200,
+        autoHideMenuBar: false,
     })
 
-    mainWindow.loadFile('./dist/signInUp/login.html')
+    mainWindow.loadFile('./dist/workSpace/index.html')
 
     mainWindow.on('closed', () => {
         mainWindow = null
     })
 }
-
 app.on('browser-window-created', (e,window) => {
     window.setMenu(null)
+    window.maximize()
 })
 
 app.on('ready', createWindow)

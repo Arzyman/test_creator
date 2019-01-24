@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Test creator</title>
+</head>
+<body>
+    <div id="pagewarp">
+        <!-- header begin -->
+        <header class="header">
+            <!-- Left side items -->
+            <div class="left">
+                <!-- User avatar -->
+                <img src="/">
+                <!-- Users firstname and lastname -->
+                <span class="fio"></span>
+                <!-- Profile info and settings link -->
+                <a href="#" id="profile">Профиль</a>
+            </div>
+            <!-- right side items -->
+            <div class="right">
+                <!-- Quit from account button -->
+                <button id="quit">Выход</button>
+            </div>
+        </header>  
+        <!-- header end -->
+        <!-- navbar begin -->
+        <nav class="navbar">
+            <!-- navbar button list -->
+            <ul>
+                <li><button id="qwe">Что-то</button></li>
+                <!-- Tutorial button, open new win with tutor video -->
+                <li><button id="tutorial">Обучение</button></li>
+                <!-- About us button, open dialog window -->
+                <li><button id="aboutUs">О нас</button></li>
+            </ul>
+        </nav> 
+         <!--navbar end  -->
+        <div class="content">
+            <div id="testList" class="testList">
+                <div id="startTestInList">
+
+                </div>
+            </div>
+            <div id="controls" class="controls">
+
+            </div>
+        </div>
+        <footer class="footer">
+
+        </footer>
+    </div>  
+    <script type="text/javascript">
+        require('./workSpace.js')
+    </script>
+</body>
+</html>
