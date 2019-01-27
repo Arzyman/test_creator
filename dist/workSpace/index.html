@@ -11,38 +11,30 @@
     <div id="pagewarp">
         <!-- header begin -->
         <header class="header win-item">
+            <div class="header-container">
             <!-- Left side items -->
-            <div class="left">
-                <!-- User avatar -->
-                <img src="/">
-                <!-- Users firstname and lastname -->
-                <span class="fio"></span>
-                <!-- Profile info and settings link -->
-                <a href="#" id="profile">Профиль</a>
-            </div>
-            <!-- right side items -->
-            <div class="right">
-                <!-- Quit from account button -->
-                <button id="quit">Выход</button>
+                <div class="left">
+                    <ul>
+                        <!-- User avatar -->
+                        <li class="left-item"><a class="img-container" href="#"><img height="100%" src="https://uploads.disquscdn.com/images/e3a640f5ae1bf628977c502faea357f8f91eb619e66b30d00c179401f180d39b.jpg"></a></li>
+                        <li><a href="#"><span class="fio">Займанов Айнур</span></a></li>
+                        <li><a href="">Мои тесты </a></li>
+                    </ul>
+                </div>
+                        <!-- right side items -->
+                    <div class="right">
+                            <!-- Quit from account button -->
+                        <button id="quit">Выход</button>
+                    </div>
             </div>
         </header>  
         <!-- header end -->
-        <!-- navbar begin -->
-        <nav class="navbar win-item">
-            <!-- navbar button list -->
-            <ul>
-                <li><button id="qwe">Что-то</button></li>
-                <!-- Tutorial button, open new win with tutor video -->
-                <li><button id="tutorial">Обучение</button></li>
-                <!-- About us button, open dialog window -->
-                <li><button id="aboutUs">О нас</button></li>
-            </ul>
-        </nav> 
-         <!--navbar end  -->
             <!-- list of tests and choosing them -->
             <div id="testList" class="testList win-item">
-                <div id="startTestInList">
-
+                <div id="test">
+                    <form class="test_name">
+                        
+                    </form>
                 </div>
             </div>
             <!-- left side of content with program functions -->
@@ -50,9 +42,9 @@
 
             </div>
         <!-- footer begin -->
-        <footer class="footer win-item">
+        <!-- <footer class="footer win-item">
             <span>This footer</span>
-        </footer>
+        </footer> -->
         <!-- footer end -->
     </div>  
     <script type="text/javascript">

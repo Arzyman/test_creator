@@ -8,7 +8,7 @@ var createWindow = () => {
         autoHideMenuBar: false,
     })
 
-    mainWindow.loadFile('./dist/signInUp/index.html')
+    mainWindow.loadFile('./dist/workSpace/index.html')
 
     mainWindow.on('closed', () => {
         mainWindow = null
