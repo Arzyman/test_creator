@@ -38,7 +38,7 @@ body, html {
 }
 
 .user-stats{
-    height: 49vh;
+    height: 38vh;
     width: 29%;
     float: right;
 
@@ -166,6 +166,7 @@ body, html {
     margin-right: auto;
     border-bottom: 1px solid rgba(155, 89, 182, .4);
     font-size: 14px;
+    text-align: justify;
 }
 
 .test-desription {
@@ -270,4 +271,52 @@ body, html {
     background-color: white;
     color: rgb(155, 89, 182);
     border: 2px solid rgb(155, 89, 182);
+}
+
+.stats-list{
+    height: 170px;
+    overflow: hidden;
+    margin: 0;
+    list-style-type: none;
+}
+
+.stats-list > li {
+    margin: 20px 0;
+}
+
+.user-status-block {
+    background-color: rgb(155, 89, 182);
+    border-radius: 10px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.complete-tests {
+    color: #2ecc71;
+}
+
+.creating-tests {
+    color: #f39c12;
+}
+
+.average-result {
+    color: #3498db;
+}
+
+.footer{
+    height: 75px;
+    line-height: 75px;
+    text-align: center;
+    float: right;
+    width: 29%;
+}
+
+.footer-text {
+    color: white;
+    font-size: 12px;
 }

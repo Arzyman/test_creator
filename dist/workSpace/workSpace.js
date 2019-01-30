@@ -11,7 +11,7 @@ c.log('---')
 
 var writeFooterDate = () => {
     let nowDate = new Date
-    $('.test-footer-text').text(`© ArzyLab 2018 - ${nowDate.toLocaleString('ru', {year: 'numeric'})}`)
+    $('.footer-text').text(`© ArzyLab 2018 - ${nowDate.toLocaleString('ru', {year: 'numeric'})}`)
 }
 
 writeFooterDate()
