@@ -14,6 +14,7 @@ var createWindow = () => {
         mainWindow = null
     })
 }
+
 app.on('browser-window-created', (e,window) => {
     window.maximize()
 })
