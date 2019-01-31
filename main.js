@@ -1,29 +1,20 @@
 const {app, BrowserWindow} = require('electron')
 
-let mainWindow
-var createWindow = () => {
-    mainWindow = new BrowserWindow({
-        width: 800,
-        height: 1200,
-        autoHideMenuBar: false,
-    })
+let logWindow
+let regWindow
 
-    mainWindow.loadFile('./dist/workSpace/index.html')
-
-    mainWindow.on('closed', () => {
-        mainWindow = null
+app.on('ready', () => {
+    logWindow = new BrowserWindow({
+        width: 1200,
+        height: +'800',
+        minWidth: 1200, 
+        minHeight: 800, 
     })
+    logWindow.loadURL(`file://${__dirname}/dist/signInUp/login.html`)
+    logWindow.maximize()
+})
+
+exports.openReg = () => {
+    regWindow = new BrowserWindow({width: 1200, height: 800, parent: logWindow})
+    regWindow.loadURL(`file://${__dirname}/dist/signInUp/reg.html`)
 }
-
-app.on('browser-window-created', (e,window) => {
-    window.maximize()
-})
-
-app.on('ready', createWindow)
-
-
-app.on('window-all-closed', () => {
-    if  (process.platform !== 'darwin') {
-        app.quit()
-    }
-})

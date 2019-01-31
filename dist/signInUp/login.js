@@ -1,66 +1,18 @@
 'use strict'
-const electron = require('electron').remote
+const remote = require('electron').remote
+const main = remote.require('./main.js')
 const $ = require('jquery')
-const { dialog } = require('electron').remote
-const { session } = require('electron').remote
-const c = require('electron').remote.getGlobal('console')
 
-var cUserInfo = {
-    login: 'qwe',
-    password: 'qwe'
+//footer date
+var writeFooterDate = () => {
+    let nowDate = new Date
+    $('.copyright').text(`© ArzyLab 2018 - ${nowDate.toLocaleString('ru', {year: 'numeric'})}`)
 }
 
-var getUserInfo = () => {
+writeFooterDate()
 
-    var userInfo = {
-        login: '',
-        password: '',
-    }
-    userInfo.login = $('#login').val()
-    userInfo.password = $('#password').val()
-    
-    return userInfo
-}
+//open regWindow
 
-var checkUserInfo = (newInfo) => {
-    if (cUserInfo.login == newInfo.login) {
-        if (cUserInfo.password == newInfo.password) {
-            return true
-        } else {
-            return false
-        }
-    } else {
-        return false
-    }
-}
-
-$('#btn').click(() => {
-    var result = checkUserInfo(getUserInfo())
-    if (result) {
-        c.log('Vhod vipolnen')
-    } else {
-        c.log('sosi bibu')
-    }
+$('.signUp').click(() => {
+    main.openReg()
 })
-
-// let cookie = {
-//     url: 'https://cookie.com',
-//     name: 'user',
-//     value: '123'
-// }
-
-// session.defaultSession.cookies.set(cookie, (err) => {
-//     if (err) console.log(err)
-// })
-
-// $('#qqq').click(() => {
-//     // dialog.showOpenDialog({
-//     //     title: 'Simple Dialog'
-//     // }, (filepath) => {
-//     //     console.log('Filepath: ', filepath)
-//     // })
-
-//     session.defaultSession.cookies.get({}, (err, cookies) => {
-//         console.log(err, cookies)
-//     })
-// })

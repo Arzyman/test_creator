@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+
+* {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f1c40f;
+}
+
+.login-block {
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    position: absolute;
+    margin: auto;
+    top: 0; bottom: 0; left: 0; right: 0;
+    overflow: hidden;
+    box-shadow: 0 0 10px gray;
+}
+
+.headline {
+    text-align: center;
+    color: #34495e;
+    padding: 10px;
+}
+
+.inputs-block {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+.inputs-block > input {
+    width: 348px;
+    margin: 20px auto 20px auto;
+    height: 40px;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 1px solid;
+    border-color: #f1c40f;
+    padding: 10px 5px 10px 5px;
+    color: rgba(52, 73, 94, .9);
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.sign-buttons {
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+}
+
+.sign-buttons > button {
+    width: 47%;
+    height: 60px;
+    border-radius: 3px;
+    margin: 0px 5px 0px 5px;
+    border:0;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 2px solid rgba(0,0,0,0);
+}
+
+.signUp {
+    background-color: rgba(52, 152, 219, .8);
+    float: left;
+}
+
+.signIn {
+    float: right;
+    background-color: rgba(46, 204, 113, .8);
+}
+
+.signUp:hover {
+    background-color: rgba(0,0,0,0);
+    color: rgba(52, 152, 219, .9);
+    border: 2px solid rgba(52, 152, 219, .9);
+}
+
+.signIn:hover {
+    background-color: rgba(0,0,0,0);
+    color: rgba(46, 204, 113, .9);
+    border: 2px solid rgba(46, 204, 113, .9);
+}
+
+.footer {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    color: gray;
+    font-size: 14px;
+}
+
+.guest{
+    color: rgba(46, 204, 113, 1);
+}
+
+.version {
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    bottom: 0;
+    margin: 10px;
+}
+
+.copyright {
+    position:absolute;
+    width:300px;
+    bottom:0px;
+    right:25%;
+    left:50%;
+    margin-left:-150px;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}

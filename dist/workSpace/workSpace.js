@@ -8,6 +8,25 @@ const c = require('electron').remote.getGlobal('console')
 
 c.log('---')
 
+// var testConfig = {
+//     testName: (name) => {
+//         $('.test-name').text(`${name}`)
+//     },
+//     testDesc: (desc) => {
+//         $('.test-description').text(`${desc}`)
+//     },
+//     testInfo: {
+//         testAuthor: (author) => {
+//             $('.test-author').text(`${author}`)
+//         },
+//         testRating: (rating) => {
+//             $('.test-rating').text(`${rating}`)
+//         },
+//         testLesson: (lesson) => {
+//             $('.test-lesson').text(`${lesson}`)
+//         }
+//     }
+// }
 
 var writeFooterDate = () => {
     let nowDate = new Date
