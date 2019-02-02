@@ -83,7 +83,7 @@ input:focus {
     float: left;
 }
 
-.position {
+#position {
     width: 358px;
     margin: 31px auto 10px auto;
     height: 30px;
@@ -95,6 +95,10 @@ input:focus {
     color: rgba(52, 73, 94, .9);
     font-size: 16px;
     float: left;
+}
+
+#position:focus {
+    outline: 0;
 }
 
 .sign-button {
@@ -133,6 +137,14 @@ input:focus {
     background-color: rgba(0,0,0,0);
 }
 
+.back:focus {
+    outline: 0;
+}
+
+.back:hover {
+    margin-left: 10px;
+}
+
 .version {
     color: white;
     font-size: 14px;
@@ -151,4 +163,8 @@ input:focus {
     text-align: center;
     color: white;
     font-size: 14px;
+}
+
+.error {
+    border-color: red;
 }

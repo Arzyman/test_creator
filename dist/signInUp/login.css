@@ -126,3 +126,7 @@ body {
     color: white;
     font-size: 14px;
 }
+
+.error {
+    border-bottom: 1px solid red;
+}
