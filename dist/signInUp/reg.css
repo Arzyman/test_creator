@@ -167,5 +167,8 @@ input:focus {
 
 .error {
     border-color: red;
+}
+
+.error::placeholder {
     color: red;
 }

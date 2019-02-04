@@ -17,44 +17,77 @@ var getUserData = () => {
     }
 }
 
-var clearError = (errors) => {
-    c.log(errors)
+var allowOnlyAplpha = (inputText) => {
+    return (inputText.search(/[,.!?;:()/]/) != -1 || inputText.search(/\d/) != -1) ?
+        false : true
+
 }
 
-$('input').on('focus', () => {
-    
-})
-
-$('select').on('focus', () => {
-    $('select').removeClass('error')
-})
+var allowOnlyEngAplpha = (inputText) => {
+    return (inputText.search(/[а-яё]/) != -1) ? false : true
+}
 
 var checkEmpty = (user) => {
-    let i = -1
-    let errorKeys = []
+    let emptyInput = 0
+    
     for (var key in user) {
         if ((!user[key]) || (user[key] === null)) {
 
-            $(`#${key}`).val('! Пустое поле').addClass('error')
+            $(`#${key}`).attr('placeholder', 'Заполните поле').addClass('error')
             $('.position').addClass('error')
 
             if (key == 'password') $('#password').val('')
-            if (key == 'rePassword') $('#repeate-password').addClass('error')
-            
-            errorKeys[i++] = key
+            if (key == 'rePassword') $('#repeate-password').
+                attr('placeholder', 'Заполните поле').addClass('error')
+
+            emptyInput++
         }
-        return errorKeys
     }
+    return (!emptyInput) ? true : false
+}
+
+//function for correct input
+var checkCorrectSymbols = (user) => {
+    for (var key in user) {
+
+        let element = $(`#${key}`)
+        
+        if (key == 'secondname' || key == 'firstname') {
+            if (!allowOnlyAplpha(element.val())) {
+                element.val('').addClass('error').
+                    attr('placeholder', 'Недопустимые символы')
+                return false
+            }
+        }
+
+        if (key == 'email') {
+            if (element.val().search('@') == -1) {
+                element.val('').addClass('error').
+                    attr('placeholder', 'Некорректный адрес')
+                return false
+            }
+        }
+
+        if (key == 'username') {
+            if (!allowOnlyEngAplpha(element.val())) {
+                element.val('').addClass('error').
+                    attr('placeholder', 'Недопустимые символы')
+                return false
+            }
+        }
+    }
+    return true
 }
 
 var registrationCheck = (user) => {
-    let emptyError = checkEmpty(user)
-    clearError(emptyError)
+    if (checkEmpty(user)) {
+        if (checkCorrectSymbols(user)) {
+            
+        }
+    }
+
+    return false
 }
-
-// var chekSpace = () => {
-
-// }
 
 $('.signUp').click( () => {
     let user = getUserData()
@@ -64,6 +97,14 @@ $('.signUp').click( () => {
 // back button
 $('.back').click( () => {
     window.close()
+})
+
+$('input').on('input', () => {
+    $('input').removeClass('error')
+})
+
+$('select').on('focus', () => {
+    $('select').removeClass('error')
 })
 
 // database connection
