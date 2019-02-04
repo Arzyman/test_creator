@@ -24,9 +24,11 @@ var allowOnlyAplpha = (inputText) => {
 }
 
 var allowOnlyEngAplpha = (inputText) => {
-    return (inputText.search(/[а-яё]/) != -1) ? false : true
+    return (inputText.search(/[а-яё]/) != -1) ? 
+        false : true
 }
 
+//function for check empty inputs
 var checkEmpty = (user) => {
     let emptyInput = 0
     
@@ -46,7 +48,7 @@ var checkEmpty = (user) => {
     return (!emptyInput) ? true : false
 }
 
-//function for correct input
+//function for check correct inputs
 var checkCorrectSymbols = (user) => {
     for (var key in user) {
 
@@ -61,7 +63,7 @@ var checkCorrectSymbols = (user) => {
         }
 
         if (key == 'email') {
-            if (element.val().search('@') == -1) {
+            if (element.val().search('@') == -1 || element.val().search(' ') != -1) {
                 element.val('').addClass('error').
                     attr('placeholder', 'Некорректный адрес')
                 return false
@@ -69,7 +71,7 @@ var checkCorrectSymbols = (user) => {
         }
 
         if (key == 'username') {
-            if (!allowOnlyEngAplpha(element.val())) {
+            if (!allowOnlyEngAplpha(element.val()) || element.val().search(' ') != -1) {
                 element.val('').addClass('error').
                     attr('placeholder', 'Недопустимые символы')
                 return false
@@ -79,10 +81,21 @@ var checkCorrectSymbols = (user) => {
     return true
 }
 
+var checkUsername = (user) => {
+    let query = `SELECT * FROM users WHERE username = '${user.username}'`
+    dbCon.query(query, (err, result, fields) => {
+        if (err) {
+            c.log(err)
+        } else {
+            c.log(result)
+        }
+    })
+}
+
 var registrationCheck = (user) => {
     if (checkEmpty(user)) {
         if (checkCorrectSymbols(user)) {
-            
+            checkUsername(user)
         }
     }
 
@@ -112,5 +125,4 @@ var dbCon = config.db()
 
  dbCon.connect((err) => {
     if (err) c.log('Connection error')
-    c.log('Connection succes')
 })
