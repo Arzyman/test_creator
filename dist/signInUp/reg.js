@@ -1,9 +1,10 @@
 'use strict'
 
 const remote = require('electron').remote
-const config = require('../../src/config.js')
+const config = require('../../src/js/config')
 const c = remote.getGlobal('console')
 const $ = require('jquery')
+const main = remote.require('./main.js')
 
 var getUserData = () => {
     return {
@@ -109,7 +110,7 @@ $('.signUp').click( () => {
 
 // back button
 $('.back').click( () => {
-    window.close()
+    main.openLog()
 })
 
 $('input').on('input', () => {

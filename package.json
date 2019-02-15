@@ -18,7 +18,8 @@
   "homepage": "https://github.com/Bitardd/test_creator#readme",
   "devDependencies": {
     "electron": "^4.0.1",
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "wowjs": "^1.1.3"
   },
   "dependencies": {
     "jquery": "^3.3.1"

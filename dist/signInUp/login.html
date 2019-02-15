@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../../node_modules/animate.css/animate.css">
+    <script src="../../node_modules/wowjs/dist/wow.js"></script>
     <title>Авторизация</title>
 </head>
 <body>
-    <div class="login-block">
+    <div class="login-block wow fadeInUp">
         <p class="headline">Авторизация</p>
         <div class="inputs-block">
             <input type="text" name="username" id="username" placeholder="Логин или email">
@@ -23,6 +25,9 @@
         <p class="version">v 0.0.1</p>
         <p class="copyright">© ArzyLab 2018 - 2019</p>
     <script>
+        // -- wowjs init --
+        new WOW().init()
+
         require('./login.js')
     </script>
 </body>

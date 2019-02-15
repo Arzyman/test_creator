@@ -2,6 +2,8 @@
 const remote = require('electron').remote
 const main = remote.require('./main.js')
 const $ = require('jquery')
+const ipcRender = require('electron').ipcRenderer
+
 
 //footer date
 var writeFooterDate = () => {
@@ -15,4 +17,8 @@ writeFooterDate()
 
 $('.signUp').click(() => {
     main.openReg()
+})
+
+$('.signIn').click(() => {
+    ipc.send('load-page', 'file://' + __dirname + '/dist/workSpace/index.html');
 })

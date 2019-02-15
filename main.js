@@ -1,7 +1,6 @@
 const {app, BrowserWindow} = require('electron')
 
 let logWindow
-let regWindow
 
 app.on('ready', () => {
     logWindow = new BrowserWindow({
@@ -15,6 +14,14 @@ app.on('ready', () => {
 })
 
 exports.openReg = () => {
-    regWindow = new BrowserWindow({width: 1200, height: 800, parent: logWindow})
-    regWindow.loadURL(`file://${__dirname}/dist/signInUp/reg.html`)
+    logWindow.loadURL(`file://${__dirname}/dist/signInUp/reg.html`)
+}
+exports.openLog = () => {
+    logWindow.loadURL(`file://${__dirname}/dist/signInUp/login.html`)
+}
+
+exports.openWorkSpace = () => {
+    openWorkSpace = new BrowserWindow({width: 1200, height: 800})
+    openWorkSpace.loadURL(`file://${__dirname}/dist/workSpace/index.html`)
+    openWorkSpace.maximize()
 }

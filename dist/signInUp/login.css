@@ -10,23 +10,25 @@ html, body {
 }
 
 body {
-    background-color: #f1c40f;
+    background-image: url('../../src/img/loginbg.jpg');
+    background-size: 100%;   
+    overflow: hidden;
 }
 
 .login-block {
     width: 400px;
     height: 500px;
-    background-color: white;
     position: absolute;
     margin: auto;
     top: 0; bottom: 0; left: 0; right: 0;
     overflow: hidden;
-    box-shadow: 0 0 10px gray;
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
 }
 
 .headline {
     text-align: center;
-    color: #34495e;
+    color: white;
     padding: 10px;
 }
 
@@ -38,18 +40,28 @@ body {
 }
 
 .inputs-block > input {
-    width: 348px;
+    width: 316px;
     margin: 20px auto 20px auto;
     height: 40px;
-    border-top: 0;
-    border-right: 0;
-    border-left: 0;
-    border-bottom: 1px solid;
-    border-color: #f1c40f;
-    padding: 10px 5px 10px 5px;
-    color: rgba(52, 73, 94, .9);
+    border: 0;
+    border-bottom: 2px solid rgba(46, 204, 113, .8);
+    background-color: rgba(0,0,0,.2);
+    border-radius: 7px;
+    padding: 10px 20px 10px 20px;
+    color: white;
     font-size: 16px;
     transition: 0.2s;
+}
+
+
+.inputs-block > input:focus {
+    outline: 0;
+    font-size: 18px;
+    background-color: rgba(0,0,0,.4);
+}
+
+.inputs-block > input::placeholder {
+    color: rgba(255,255,255,.7);
 }
 
 .sign-buttons {
@@ -99,12 +111,12 @@ body {
     bottom: 0;
     right: 0;
     left: 0;
-    color: gray;
+    color: white;
     font-size: 14px;
 }
 
 .guest{
-    color: rgba(46, 204, 113, 1);
+    color: rgb(46, 204, 113);
 }
 
 .version {
