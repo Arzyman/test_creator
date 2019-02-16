@@ -11,6 +11,7 @@ app.on('ready', () => {
     })
     logWindow.loadURL(`file://${__dirname}/dist/signInUp/login.html`)
     logWindow.maximize()
+    logWindow.setMenu(null)
 })
 
 exports.openReg = () => {

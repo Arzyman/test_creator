@@ -1,7 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+@import url('https://fonts.googleapis.com/css?family=Archivo');
 
 * {
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Archivo', sans-serif;
+}
+
+*:focus {
+    outline: 0;
 }
 
 html, body {
@@ -10,8 +14,9 @@ html, body {
 }
 
 body {
-    background-image: url('../../src/img/loginbg.jpg');
-    background-size: 100%;   
+    background-image: url('../../src/img/loginbg.png');
+    background-size: 100%;
+    background-repeat: no-repeat;   
     overflow: hidden;
 }
 
@@ -22,14 +27,16 @@ body {
     margin: auto;
     top: 0; bottom: 0; left: 0; right: 0;
     overflow: hidden;
-    border-bottom: 2px solid white;
-    border-top: 2px solid white;
+    border-radius: 20px;
+    background-color: white;
 }
 
 .headline {
     text-align: center;
-    color: white;
-    padding: 10px;
+    color: rgba(0,0,0,.7);
+    font-size: 18px;
+    padding-top: 20px;
+    font-weight: bold;
 }
 
 .inputs-block {
@@ -40,15 +47,13 @@ body {
 }
 
 .inputs-block > input {
-    width: 316px;
-    margin: 20px auto 20px auto;
+    width: 100%;
+    margin: 0px auto 25px auto;
     height: 40px;
     border: 0;
-    border-bottom: 2px solid rgba(46, 204, 113, .8);
-    background-color: rgba(0,0,0,.2);
-    border-radius: 7px;
-    padding: 10px 20px 10px 20px;
-    color: white;
+    border-bottom: 2px solid rgba(0,0,0,.6);
+    padding: 10px 10px 10px 0px;
+    color: black;
     font-size: 16px;
     transition: 0.2s;
 }
@@ -57,52 +62,55 @@ body {
 .inputs-block > input:focus {
     outline: 0;
     font-size: 18px;
-    background-color: rgba(0,0,0,.4);
-}
-
-.inputs-block > input::placeholder {
-    color: rgba(255,255,255,.7);
+    border-color: #fb8122;
 }
 
 .sign-buttons {
     width: 100%;
     height: 100%;
-    margin-top: 20px;
-}
-
-.sign-buttons > button {
-    width: 47%;
-    height: 60px;
-    border-radius: 3px;
-    margin: 0px 5px 0px 5px;
-    border:0;
-    color: white;
-    font-size: 14px;
-    cursor: pointer;
-    transition: 0.2s;
-    border: 2px solid rgba(0,0,0,0);
 }
 
 .signUp {
-    background-color: rgba(52, 152, 219, .8);
     float: left;
+    width: 50%;
+    border: 0;
+    height: 60px;
+    color: rgba(52, 152, 219, .8);
+    font-size: 16px;
+    background: white;
+    cursor: pointer;
+}
+
+.pass-forgot {
+    float: right;
+    width: 50%;
+    height: 60px;
+    color: gray;
+    font-size: 16px;
+    background: white;
+    cursor: pointer;
+    border: 0;
+}
+
+.signUp:hover, .pass-forgot:hover {
+    color: black;
 }
 
 .signIn {
-    float: right;
-    background-color: rgba(46, 204, 113, .8);
-}
-
-.signUp:hover {
-    background-color: rgba(0,0,0,0);
-    color: rgba(52, 152, 219, .9);
-    border: 2px solid rgba(52, 152, 219, .9);
+    width: 100%;
+    border: 0;
+    border-radius: 20px;
+    height: 50px;
+    background: #fb8122;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s ease;
+    cursor: pointer;
 }
 
 .signIn:hover {
-    background-color: rgba(0,0,0,0);
-    color: rgba(46, 204, 113, .9);
-    border: 2px solid rgba(46, 204, 113, .9);
+    border-radius: 0px;
 }
 
 .footer {
@@ -111,7 +119,7 @@ body {
     bottom: 0;
     right: 0;
     left: 0;
-    color: white;
+    color: gray;
     font-size: 14px;
 }
 

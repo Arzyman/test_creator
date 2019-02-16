@@ -6,18 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="../../node_modules/animate.css/animate.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="../../node_modules/wowjs/dist/wow.js"></script>
     <title>Авторизация</title>
 </head>
 <body>
-    <div class="login-block wow fadeInUp">
-        <p class="headline">Авторизация</p>
+    <div class="login-block wow slideInUp">
+        <div class="headline">
+            <img src="../../src/img/profileicon.png" height="100px">
+            <p>Войдите в аккаунт</p>
+        </div>
         <div class="inputs-block">
-            <input type="text" name="username" id="username" placeholder="Логин или email">
-            <input type="password" name="" id="password" placeholder="Пароль">
+            <input class="wow slideInUp" data-wow-delay="0.2s" type="text" autofocus name="username" id="username" placeholder="Логин или email">
+            <input class="wow slideInUp" data-wow-delay="0.3s" type="password" name="" id="password" placeholder="Пароль">
             <div class="sign-buttons">
-                <button class="signUp">Регистрация</button>
-                <button class="signIn">Вперед!</button>
+                <button class="signIn wow slideInUp" data-wow-delay="0.4s">Вперед!</button>
+                <button class="signUp wow slideInUp" data-wow-delay="0.5s">Регистрация</button>
+                <button class="pass-forgot wow slideInUp" data-wow-delay="0.5s">Забыли пароль?</button>
             </div>
         </div>
         <p class="footer">Войти, как <a href="#" class="guest">Гость</a></p>
