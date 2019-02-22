@@ -11,7 +11,7 @@ app.on('ready', () => {
     })
     logWindow.loadURL(`file://${__dirname}/dist/signInUp/login.html`)
     logWindow.maximize()
-    logWindow.setMenu(null)
+    // logWindow.setMenu(null)
 })
 
 exports.openReg = () => {
@@ -22,7 +22,5 @@ exports.openLog = () => {
 }
 
 exports.openWorkSpace = () => {
-    openWorkSpace = new BrowserWindow({width: 1200, height: 800})
-    openWorkSpace.loadURL(`file://${__dirname}/dist/workSpace/index.html`)
-    openWorkSpace.maximize()
+    logWindow.loadURL(`file://${__dirname}/dist/workSpace/index.html`)
 }

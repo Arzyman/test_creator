@@ -23,7 +23,7 @@ var allowOnlyAplpha = (inputText) => {
         false : true
 
 }
-
+ 
 var allowOnlyEngAplpha = (inputText) => {
     return (inputText.search(/[а-яё]/) != -1) ? 
         false : true

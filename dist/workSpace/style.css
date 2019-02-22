@@ -123,6 +123,10 @@ body, html {
     color: rgba(0,0,0,.5);
 }
 
+#quit:focus {
+    outline: 0;
+}
+
 /* ------------------------------------------- */
 
 .testList-header {

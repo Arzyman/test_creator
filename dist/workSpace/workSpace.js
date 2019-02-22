@@ -3,6 +3,7 @@
 
 const electron = require('electron').remote
 const $ = require('jquery')
+const main = electron.require('./main.js')
 const { session } = require('electron').remote
 const c = require('electron').remote.getGlobal('console')
 c.log('---')
@@ -35,5 +36,5 @@ var writeFooterDate = () => {
 writeFooterDate()
 
 $('#quit').click(()=> {
-    
+    main.openLog()
 })

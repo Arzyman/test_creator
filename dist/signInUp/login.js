@@ -20,5 +20,5 @@ $('.signUp').click(() => {
 })
 
 $('.signIn').click(() => {
-    ipc.send('load-page', 'file://' + __dirname + '/dist/workSpace/index.html');
+    main.openWorkSpace()
 })
