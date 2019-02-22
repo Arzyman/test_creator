@@ -127,3 +127,13 @@ var dbCon = config.db()
  dbCon.connect((err) => {
     if (err) c.log('Connection error')
 })
+
+// preloader
+
+$(document).ready(($) => {
+    $(window).load(() => {
+        setTimeout(() => {
+            $('#preloader').fadeOut('slow', () => {})
+        }, 2000)
+    })
+})
