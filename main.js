@@ -4,15 +4,18 @@ let logWindow
 
 app.on('ready', () => {
     logWindow = new BrowserWindow({
-        width: 1200,
-        height: +'800',
-        minWidth: 1200, 
-        minHeight: 800, 
-    })
-    logWindow.loadURL(`file://${__dirname}/dist/signInUp/login.html`)
-    logWindow.maximize()
+        minWidth: 1200,
+        minHeight: 680,
+        resizable: false,
+        center: true,
+        show: false,
+    });
+    logWindow.once('ready-to-show', () => {
+        logWindow.show()
+    });
+    logWindow.loadURL(`file://${__dirname}/dist/signInUp/login.html`);
     // logWindow.setMenu(null)
-})
+});
 
 exports.openReg = () => {
     logWindow.loadURL(`file://${__dirname}/dist/signInUp/reg.html`)

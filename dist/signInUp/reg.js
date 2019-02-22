@@ -85,18 +85,21 @@ var checkCorrectSymbols = (user) => {
 var checkUsername = (user) => {
     let query = `SELECT * FROM users WHERE username = '${user.username}'`
     dbCon.query(query, (err, result, fields) => {
-        if (err) {
-            c.log(err)
-        } else {
-            c.log(result)
+        if (err) throw err
+        if (result == false) {
+            return true
         }
-    })
+    }) 
 }
+
+// main function with all reg func
 
 var registrationCheck = (user) => {
     if (checkEmpty(user)) {
         if (checkCorrectSymbols(user)) {
-            checkUsername(user)
+            if (checkUsername(user)) {
+                doReg(user)
+            }
         }
     }
 
@@ -121,19 +124,19 @@ $('select').on('focus', () => {
     $('select').removeClass('error')
 })
 
+// insert data into table
+
+var doReg = (user) => {
+    // let query = `INSERT INTO users (firstname, secondname, patromymic, position, email, username, password) VALUES(${user.secondname}, ${user.firstname}, ${user.position}, ${user.username}, ${user.password})`
+    // dbCon.query(query, (err, result, fields) => {
+    //     if (err) c.log('reg error')
+    // })
+    c.log('hui')
+}
+
 // database connection
 var dbCon = config.db()
 
  dbCon.connect((err) => {
     if (err) c.log('Connection error')
-})
-
-// preloader
-
-$(document).ready(($) => {
-    $(window).load(() => {
-        setTimeout(() => {
-            $('#preloader').fadeOut('slow', () => {})
-        }, 2000)
-    })
 })
