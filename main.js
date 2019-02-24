@@ -13,17 +13,17 @@ app.on('ready', () => {
     logWindow.once('ready-to-show', () => {
         logWindow.show()
     });
-    logWindow.loadURL(`file://${__dirname}/dist/signInUp/login.html`);
+    logWindow.loadURL(`file://${__dirname}/app/components/signInPage/login.html`);
     // logWindow.setMenu(null)
 });
 
 exports.openReg = () => {
-    logWindow.loadURL(`file://${__dirname}/dist/signInUp/reg.html`)
+    logWindow.loadURL(`file://${__dirname}/app/components/regPage/reg.html`)
 }
 exports.openLog = () => {
-    logWindow.loadURL(`file://${__dirname}/dist/signInUp/login.html`)
+    logWindow.loadURL(`file://${__dirname}/app/components/signInPage/login.html`)
 }
 
 exports.openWorkSpace = () => {
-    logWindow.loadURL(`file://${__dirname}/dist/workSpace/index.html`)
+    logWindow.loadURL(`file://${__dirname}/app/components/mainPage/index.html`)
 }
