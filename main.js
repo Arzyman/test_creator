@@ -4,8 +4,8 @@ let logWindow
 
 app.on('ready', () => {
     logWindow = new BrowserWindow({
-        minWidth: 1200,
-        minHeight: 680,
+        width: 1200,
+        height: 680,
         resizable: false,
         center: true,
         show: false,
