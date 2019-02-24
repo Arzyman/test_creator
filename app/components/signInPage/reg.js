@@ -1,7 +1,7 @@
 'use strict'
 
 const remote = require('electron').remote
-const config = require('../../src/js/config')
+const config = require('../../utils/dbConfig')
 const c = remote.getGlobal('console')
 const $ = require('jquery')
 const main = remote.require('./main.js')
