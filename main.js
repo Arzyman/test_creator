@@ -1,6 +1,7 @@
 const {app, BrowserWindow} = require('electron')
 
 let logWindow
+let mainWindow
 
 app.on('ready', () => {
     logWindow = new BrowserWindow({
@@ -8,14 +9,12 @@ app.on('ready', () => {
         height: 680,
         resizable: false,
         center: true,
-        show: false,
-    });
-    logWindow.once('ready-to-show', () => {
-        logWindow.show()
-    });
-    logWindow.loadURL(`file://${__dirname}/app/components/signInPage/login.html`);
-    // logWindow.setMenu(null)
-});
+        autoHideMenuBar: true
+    })
+    logWindow.loadURL(`file://${__dirname}/app/components/signInPage/login.html`)
+})
+
+//-----------------------
 
 exports.openReg = () => {
     logWindow.loadURL(`file://${__dirname}/app/components/regPage/reg.html`)
@@ -25,5 +24,7 @@ exports.openLog = () => {
 }
 
 exports.openWorkSpace = () => {
-    logWindow.loadURL(`file://${__dirname}/app/components/mainPage/index.html`)
+    mainWindow = new BrowserWindow({minWidth: 1200, minHeight: 680, center: true})
+    mainWindow.loadURL(`file://${__dirname}/app/components/mainPage/workSpace.html`)
+    mainWindow.maximize()
 }

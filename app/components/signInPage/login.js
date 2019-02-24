@@ -20,5 +20,7 @@ $('.signUp').click(() => {
 })
 
 $('.signIn').click(() => {
+    let window = remote.getCurrentWindow()
     main.openWorkSpace()
+    window.close()
 })
