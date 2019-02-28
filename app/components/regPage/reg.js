@@ -1,10 +1,11 @@
 'use strict'
 
-const remote = require('electron').remote
-const config = require('../../utils/dbConfig')
-const c = remote.getGlobal('console')
-const $ = require('jquery')
-const main = remote.require('./main.js')
+const remote = require('electron').remote;
+const { dialog } = require('electron').remote;
+const { db } = require('../../utils/dbConfig.js');
+const c = remote.getGlobal('console');
+const $ = require('jquery');
+const main = remote.require('./main.js');
 
 var getUserData = () => {
     return {
@@ -30,7 +31,7 @@ var allowOnlyEngAplpha = (inputText) => {
 }
 
 //function for check empty inputs
-var checkEmpty = (user) => {
+const checkEmpty = (user) => {
     let emptyInput = 0
     
     for (var key in user) {
@@ -80,63 +81,80 @@ var checkCorrectSymbols = (user) => {
         }
     }
     return true
-}
-
-var checkUsername = (user) => {
-    let query = `SELECT * FROM users WHERE username = '${user.username}'`
-    dbCon.query(query, (err, result, fields) => {
-        if (err) throw err
-        if (result == false) {
-            return true
-        }
-    }) 
-}
+};
 
 // main function with all reg func
 
-var registrationCheck = (user) => {
+const registrationCheck = (user) => {
     if (checkEmpty(user)) {
         if (checkCorrectSymbols(user)) {
-            if (checkUsername(user)) {
-                doReg(user)
-            }
+            return true;
         }
     }
 
     return false
-}
+};
 
 $('.signUp').click( () => {
-    let user = getUserData()
-    registrationCheck(user)
-})
+    try {
+        // database connection
+        const dbConnection = db();
+        //get user data
+        const userData = getUserData();
+        const postData = {
+            firstname: userData.firstname,
+            secondname: userData.secondname,
+            type: userData.position,
+            email: userData.email,
+            username: userData.username,
+            password: userData.password
+        };
+        // verify is email or username alredy registered and try complete registration
+        if (!registrationCheck(getUserData())) throw new Error('incorrect input');
+        dbConnection.query(`SELECT * FROM users WHERE email = ?`, [userData.email], function(error, result){
+            if (error) throw new Error('Database connection error');
+            if (result[0]) {
+                dialog.showMessageBox({title: 'Ошибка!', message: `Аккаунт с таким email  уже зарегистрирован!!!`});
+                $('#email').val('');
+                throw new Error('email is already registered');
+            }
+            dbConnection.query(`SELECT * FROM users WHERE username = ?`, [userData.username], function(error, result){
+                if (error) throw new Error('Database connection error');
+                if (result[0]) {
+                    dialog.showMessageBox({title: 'Ошибка!', message: `Данный никнейм уже используется!!!`});
+                    $('#username').val('');
+                    throw new Error('username is already registered');
+                }
+                dbConnection.query(`INSERT INTO users SET ?`, postData, function(error, result){
+                    if (error) throw new Error('Database connection error');
+                    console.log('successfully registered');
+                    dbConnection.end(error, () => {
+                        if (error) console.log(error);
+                        console.log('Database connection successfully closed')
+                    });
+
+                })
+            })
+        })
+    }
+    catch (e) {
+        if (e.message === 'Database connection error') dialog.showMessageBox({title: 'Ошибка!', message: `Произошла непредвиденная ошибка!!!!`});
+        console.log(e);
+    }
+});
 
 // back button
 $('.back').click( () => {
     main.openLog()
-})
+});
 
 $('input').on('input', () => {
     $('input').removeClass('error')
-})
+});
 
 $('select').on('focus', () => {
     $('select').removeClass('error')
-})
+});
 
-// insert data into table
 
-var doReg = (user) => {
-    // let query = `INSERT INTO users (firstname, secondname, patromymic, position, email, username, password) VALUES(${user.secondname}, ${user.firstname}, ${user.position}, ${user.username}, ${user.password})`
-    // dbCon.query(query, (err, result, fields) => {
-    //     if (err) c.log('reg error')
-    // })
-    c.log('hui')
-}
 
-// database connection
-var dbCon = config.db()
-
- dbCon.connect((err) => {
-    if (err) c.log('Connection error')
-})
