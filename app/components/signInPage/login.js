@@ -4,7 +4,7 @@ const main = remote.require('./main.js');
 const { dialog } = require('electron').remote;
 const $ = require('jquery');
 const ipcRender = require('electron').ipcRenderer;
-const { db } = require('../../utils/dbConfig.js');
+const db = require('../../utils/dbConfig.js');
 const c = remote.getGlobal('console');
 var mysql = require('mysql');
 
@@ -33,12 +33,11 @@ $('.signIn').click(() => {
             throw Error('incorrect input');
         }
         let loginType = userName.includes('@') ? 'email' : 'username';
-        db().query(`SELECT * FROM users WHERE ${loginType} = ?`, [userName], function(error, result){
+        db.query(`SELECT * FROM users WHERE ${loginType} = ?`, [userName], function(error, result){
             if (error) {
                 dialog.showMessageBox({title: 'Ошибка!', message: 'Произошел сбой при попытке подключение к серверам, пожалуйста повторите попытку позднее!'});
                 throw new Error(`${error}`);
             }
-            db().end();
             if (!result[0]) {
                 dialog.showMessageBox({title: 'Ошибка!', message: `Аккаунт не найден!!!`});
                 $('#username').val('');

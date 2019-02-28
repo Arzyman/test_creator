@@ -1,8 +1,8 @@
-'use strict'
+'use strict';
 
 const remote = require('electron').remote;
 const { dialog } = require('electron').remote;
-const { db } = require('../../utils/dbConfig.js');
+const db = require('../../utils/dbConfig.js');
 const c = remote.getGlobal('console');
 const $ = require('jquery');
 const main = remote.require('./main.js');
@@ -17,7 +17,7 @@ var getUserData = () => {
         password: $('#password').val(),
         rePassword: $('#repeate-password').val()
     }
-}
+};
 
 var allowOnlyAplpha = (inputText) => {
     return (inputText.search(/[,.!?;:()/]/) != -1 || inputText.search(/\d/) != -1) ?
@@ -32,17 +32,17 @@ var allowOnlyEngAplpha = (inputText) => {
 
 //function for check empty inputs
 const checkEmpty = (user) => {
-    let emptyInput = 0
+    let emptyInput = 0;
     
     for (var key in user) {
         if ((!user[key]) || (user[key] === null)) {
 
-            $(`#${key}`).attr('placeholder', 'Заполните поле').addClass('error')
+            $(`#${key}`).attr('placeholder', 'Заполните поле').addClass('error');
             $('.position').addClass('error')
 
-            if (key == 'password') $('#password').val('')
+            if (key == 'password') $('#password').val('');
             if (key == 'rePassword') $('#repeate-password').
-                attr('placeholder', 'Заполните поле').addClass('error')
+                attr('placeholder', 'Заполните поле').addClass('error');
 
             emptyInput++
         }
@@ -59,7 +59,7 @@ var checkCorrectSymbols = (user) => {
         if (key == 'secondname' || key == 'firstname') {
             if (!allowOnlyAplpha(element.val())) {
                 element.val('').addClass('error').
-                    attr('placeholder', 'Недопустимые символы')
+                    attr('placeholder', 'Недопустимые символы');
                 return false
             }
         }
@@ -75,7 +75,7 @@ var checkCorrectSymbols = (user) => {
         if (key == 'username') {
             if (!allowOnlyEngAplpha(element.val()) || element.val().search(' ') != -1) {
                 element.val('').addClass('error').
-                    attr('placeholder', 'Недопустимые символы')
+                    attr('placeholder', 'Недопустимые символы');
                 return false
             }
         }
@@ -97,8 +97,6 @@ const registrationCheck = (user) => {
 
 $('.signUp').click( () => {
     try {
-        // database connection
-        const dbConnection = db();
         //get user data
         const userData = getUserData();
         const postData = {
@@ -111,28 +109,23 @@ $('.signUp').click( () => {
         };
         // verify is email or username alredy registered and try complete registration
         if (!registrationCheck(getUserData())) throw new Error('incorrect input');
-        dbConnection.query(`SELECT * FROM users WHERE email = ?`, [userData.email], function(error, result){
+        db.query(`SELECT * FROM users WHERE email = ?`, [userData.email], function(error, result){
             if (error) throw new Error('Database connection error');
             if (result[0]) {
                 dialog.showMessageBox({title: 'Ошибка!', message: `Аккаунт с таким email  уже зарегистрирован!!!`});
                 $('#email').val('');
                 throw new Error('email is already registered');
             }
-            dbConnection.query(`SELECT * FROM users WHERE username = ?`, [userData.username], function(error, result){
+            db.query(`SELECT * FROM users WHERE username = ?`, [userData.username], function(error, result){
                 if (error) throw new Error('Database connection error');
                 if (result[0]) {
                     dialog.showMessageBox({title: 'Ошибка!', message: `Данный никнейм уже используется!!!`});
                     $('#username').val('');
                     throw new Error('username is already registered');
                 }
-                dbConnection.query(`INSERT INTO users SET ?`, postData, function(error, result){
+                db.query(`INSERT INTO users SET ?`, postData, function(error, result){
                     if (error) throw new Error('Database connection error');
                     console.log('successfully registered');
-                    dbConnection.end(error, () => {
-                        if (error) console.log(error);
-                        console.log('Database connection successfully closed')
-                    });
-
                 })
             })
         })
