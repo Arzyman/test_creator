@@ -3,6 +3,7 @@
 
 const electron = require('electron').remote
 const $ = require('jquery')
+const ui = require('jquery-ui')
 const main = electron.require('./main.js')
 const { session } = require('electron').remote
 const c = require('electron').remote.getGlobal('console')

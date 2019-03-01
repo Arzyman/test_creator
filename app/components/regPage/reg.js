@@ -126,6 +126,7 @@ $('.signUp').click( () => {
                 db.query(`INSERT INTO users SET ?`, postData, function(error, result){
                     if (error) throw new Error('Database connection error');
                     console.log('successfully registered');
+                    main.openLog()
                 })
             })
         })

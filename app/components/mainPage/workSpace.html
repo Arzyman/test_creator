@@ -3,113 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">          
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Test creator</title>
+    <link rel="stylesheet" href="../../src/css/animate.css">
+    <script src="../../utils/wow.js"></script>
+    <title>Рабочее поле</title>
 </head>
 <body>
-    <div id="pagewarp">
-        <!-- header begin -->
-        <header class="header win-item">
-            <div class="header-container">
-            <!-- Left side items -->
-                <div class="left">
-                    <ul>
-                        <!-- User avatar -->
-                        <li><a class="img-container" href="#"><img height="100%" src="https://uploads.disquscdn.com/images/e3a640f5ae1bf628977c502faea357f8f91eb619e66b30d00c179401f180d39b.jpg"></a></li>
-                        <li><a href="#"><span class="fio">Займанов Айнур</span></a></li>
-                        <li><a href="">Мои тесты </a></li>
-                    </ul>
-                </div>
-                        <!-- right side items -->
-                    <div class="right">
-                            <!-- Quit from account button -->
-                        <button id="quit">Выход</button>
-                    </div>
+    <div class="pagewarp">
+        <div class="header">
+            <div class="inner">
+                <ul>
+                    <li class="menubar wow slideInDown"><i class="fas fa-bars"></i></li>
+                    <li class="logo-item wow slideInDown" data-wow-delay="0.2s"><span class="logo">Neuron</span></li>
+                    <li class="search-block wow slideInDown" data-wow-delay="0.3s">
+                        <input class="search" type="text" placeholder="Поиск по тестам...">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </li>
+                    <li class="button-item wow slideInDown" data-wow-delay="0.4s"><button class="testcreate-button">Создать тест</button></li>
+                </ul>
             </div>
-        </header>  
-        <!-- header end -->
-            <!-- list of tests and choosing them -->
-            <div id="testList" class="testList win-item">
-                <!-- Header of block with test list -->
-                <div class="testList-header">
-                    <span>Список тестов</span>
-                </div>
-                <!--  tests list block -->
-                <div id="test">
-                    <!-- one test block -->
-                    <form class="test-form">
-                            <!-- theme of test -->
-                        <div class="test-header">
-                            <span class="test-name">История России</span>
-                        </div>
-                        <!-- short description of test -->
-                        <div class="description">
-                            <span class="test-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis nisi consequuntur aut culpa, corrupti dignissimos assumenda cum exercitationem atque dolores accusantium quidem sapiente necessitatibus sed! Architecto assumenda aspernatur libero molestiae.</span>
-                        </div>
-                        <!-- information about test -->
-                        <div class="test-info">
-                            <ul>
-                                <li class="info-item">Автор: <a href="#" class="test-author">Займанов Айнур</a><a>|</a></li>
-                                <li class="info-item">Рейтинг: <a href="#" class="test-rating">-----</a> <a>|</a></li>
-                                <li class="info-item">Предмет: <a href="#" class="test-lesson">Математика</a><a>|</a></li>
-                                <li class="start-test-item"><button id="start-testing">Приступить</button></li>
-                            </ul>
-                        </div>
-                    </form>
-                    <!-- text in bottom of tests list block -->
-                    <div class="test-footer">
-                        <span class="test-footer-text">Не забывайте оценивать тесты</span>
-                    </div>
-                </div>               
-            </div>
-            <!-- right side of content with program functions -->
-            <div id="controls" class="controls win-item">
-                <!-- headline of block with controls -->
-                <div class="testList-header"><span>Панель управления</span></div>
-                <!-- block with test creating items -->
-                <div class="test-create-block">
-                    <!-- form of creating test -->
-                    <form action="" class="test-create-form">
-                        <!-- headline of inner block with test create button -->
-                        <div class="test-header">
-                            <span class="test-create-header-text">Создание теста</span>
-                        </div>
-                        <!-- test create button -->
-                        <div class="test-button-block">
-                            <button id="create-test">Создать тест</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- block with user statistics -->
-            <div id="user-stats" class="user-stats win-item">
-                <!-- headline of user statistics block -->
-                <div class="testList-header"><span>Мой статус</span></div>
-                <!-- inner block with user statistics -->
-                <div class="user-stats-block">
-                    <!-- form with user statistics -->
-                    <form action="" class="user-stats-form">
-                        <!-- status list -->
-                        <ul class="stats-list">
-                            <li>Пройдено тестов: <span class="complete-tests">4</span></li>
-                            <li>Создано тестов: <span class="creating-tests">4</span></li>
-                            <li>Средний результат: <span class="average-result">3.75</span></li>
-                        </ul>
-                        <!-- user status -->
-                        <div class="user-status-block">
-                            <span class="user-status">Новечек</span>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- footer on right, bottom side __ -->
-            <div class="footer">
-                <span class="footer-text">eeeee</span>
-            </div>
-    </div>  
-    <script type="text/javascript">
+        </div>
+        <div class="container">
+            <h1>Neuron</h1>
+            <p>Test creator application</p>
+        </div>
+    </div>
+
+    <script>
+        // wow initialization
+        new WOW().init()
+
         require('./workSpace.js')
     </script>
+
 </body>
 </html>
